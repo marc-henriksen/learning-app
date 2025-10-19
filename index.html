@@ -1,64 +1,178 @@
 <!doctype html>
 <html lang="da">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>FindHjem – ro i maven, klarhed i valgene</title>
-<meta name="description" content="FindHjem gør boligjagten rolig og overskuelig med enkel vejledning, menneskelig varme og gennemsigtig data.">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FindHjem – ro i maven, klarhed i valgene</title>
+  <meta name="description" content="FindHjem gør boligjagten rolig og overskuelig med enkel vejledning, menneskelig varme og gennemsigtig data.">
 
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="FindHjem – ro i maven, klarhed i valgene">
+  <meta property="og:description" content="En rolig, empatisk boligoplevelse med tydelig forklaring og data du kan stole på.">
+  <meta property="og:url" content="https://example.com/">
+  <meta property="og:image" content="https://example.com/og-image.jpg">
 
-<!-- Open Graph / Social -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="FindHjem – ro i maven, klarhed i valgene">
-<meta property="og:description" content="En rolig, empatisk boligoplevelse med tydelig forklaring og data du kan stole på.">
-<meta property="og:url" content="https://example.com/">
-<meta property="og:image" content="https://example.com/og-image.jpg">
+  <style>
+    :root{
+      --bg:#f8fafc; /* næsten hvid */
+      --card:#ffffff; /* kort baggrund */
+      --ink:#0f172a; /* tekst */
+      --muted:#475569; /* sekundær tekst */
+      --brand:#2563eb; /* blå call-to-action */
+      --brand-ink:#ffffff;
+      --accent:#e2e8f0; /* blød kant */
+      --success:#0ea5e9; /* blid cyan til badges */
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{position:sticky;top:0;background:rgba(248,250,252,0.75);backdrop-filter:saturate(150%) blur(6px);border-bottom:1px solid var(--accent);z-index:10}
+    .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;gap:10px;align-items:center}
+    .brand .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#93c5fd,#a7f3d0);box-shadow:0 2px 8px rgba(2,6,23,0.08)}
+    .brand span{font-weight:700;letter-spacing:.2px}
+    .nav a{margin-left:18px;font-weight:500}
+    .hero{padding:64px 0 28px}
+    .hero h1{font-size:40px;line-height:1.1;margin:0 0 14px}
+    .hero p{margin:0 0 22px;color:var(--muted)}
+    .cta{display:inline-block;background:var(--brand);color:var(--brand-ink);padding:12px 18px;border-radius:12px;font-weight:700;border:1px solid #1e40af;box-shadow:0 4px 16px rgba(37,99,235,.25)}
+    .section{padding:42px 0}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+    .card{background:var(--card);border:1px solid var(--accent);border-radius:16px;padding:18px;box-shadow:0 6px 24px rgba(2,6,23,0.05)}
+    .card h3{margin:0 0 8px;font-size:20px}
+    .badge{display:inline-block;margin-top:8px;background:var(--success);color:white;font-weight:600;font-size:12px;padding:4px 8px;border-radius:999px}
+    .howto{counter-reset:step}
+    .howto .step{position:relative;padding-left:52px;margin:20px 0}
+    .howto .step::before{
+      counter-increment:step;
+      content:counter(step);
+      position:absolute;
+      left:0;top:0;
+      width:36px;height:36px;
+      display:grid;place-items:center;
+      background:var(--card);
+      border:1px solid var(--accent);
+      border-radius:8px;
+      font-weight:700;
+    }
+    form{background:var(--card);border:1px solid var(--accent);border-radius:16px;padding:18px;box-shadow:0 6px 24px rgba(2,6,23,0.05)}
+    label{display:block;font-weight:600;margin-top:12px}
+    input,select,textarea{width:100%;padding:10px;border:1px solid var(--accent);border-radius:10px;margin-top:6px}
+    .hint{color:var(--muted);font-size:14px}
+    .submit{margin-top:14px}
+    footer{padding:40px 0;margin-top:30px;border-top:1px solid var(--accent);color:var(--muted)}
+    .small{font-size:14px}
+  </style>
 
+  <!-- MACHINE-READABLE: Organization + WebSite + ContactPoint + HowTo + ItemList (Benefits) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "FindHjem",
+    "url": "https://example.com",
+    "logo": "https://example.com/og-image.jpg",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+45-XX-XX-XX-XX",
+      "contactType": "customer service",
+      "availableLanguage": "da"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <span>FindHjem</span>
+      </div>
+      <nav>
+        <a href="#">Hvordan</a>
+        <a href="#">Fordele</a>
+        <a href="#">Kontakt</a>
+      </nav>
+    </div>
+  </header>
 
-<style>
-:root{
---bg:#f8fafc; /* næsten hvid */
---card:#ffffff; /* kort baggrund */
---ink:#0f172a; /* tekst */
---muted:#475569; /* sekundær tekst */
---brand:#2563eb; /* blå call-to-action */
---brand-ink:#ffffff;
---accent:#e2e8f0; /* blød kant */
---success:#0ea5e9; /* blid cyan til badges */
-}
-*{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"}
-a{color:var(--brand);text-decoration:none}
-a:hover{text-decoration:underline}
-header{position:sticky;top:0;background:rgba(248,250,252,0.75);backdrop-filter:saturate(150%) blur(6px);border-bottom:1px solid var(--accent);z-index:10}
-.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
-.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-.brand{display:flex;gap:10px;align-items:center}
-.brand .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#93c5fd,#a7f3d0);box-shadow:0 2px 8px rgba(2,6,23,0.08)}
-.brand span{font-weight:700;letter-spacing:.2px}
-.nav a{margin-left:18px;font-weight:500}
-.hero{padding:64px 0 28px}
-.hero h1{font-size:40px;line-height:1.1;margin:0 0 14px}
-.hero p{margin:0 0 22px;color:var(--muted)}
-.cta{display:inline-block;background:var(--brand);color:var(--brand-ink);padding:12px 18px;border-radius:12px;font-weight:700;border:1px solid #1e40af;box-shadow:0 4px 16px rgba(37,99,235,.25)}
-.section{padding:42px 0}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-.card{background:var(--card);border:1px solid var(--accent);border-radius:16px;padding:18px;box-shadow:0 6px 24px rgba(2,6,23,0.05)}
-.card h3{margin:0 0 8px;font-size:20px}
-.badge{display:inline-block;margin-top:8px;background:var(--success);color:white;font-weight:600;font-size:12px;padding:4px 8px;border-radius:999px}
-.howto{counter-reset:step}
-.howto .step{position:relative;padding-left:52px;margin:20px 0}
-.howto .step::before{counter-increment:step;content:counter(step);position:absolute;left:0;top:0;width:36px;height:36px;display:grid;place-items:center;background:var(--card);border:1px solid var(--accent);border-radius:10px;font-weight:700;box-shadow:0 4px 16px rgba(2,6,23,.06)}
-form{background:var(--card);border:1px solid var(--accent);border-radius:16px;padding:18px;box-shadow:0 6px 24px rgba(2,6,23,0.05)}
-label{display:block;font-weight:600;margin-top:12px}
-input,select,textarea{width:100%;padding:10px;border:1px solid var(--accent);border-radius:10px;margin-top:6px}
-.hint{color:var(--muted);font-size:14px}
-.submit{margin-top:14px}
-footer{padding:40px 0;margin-top:30px;border-top:1px solid var(--accent);color:var(--muted)}
-.small{font-size:14px}
-</style>
+  <main class="wrap">
+    <section class="hero">
+      <h1>FindHjem – ro i maven, klarhed i valgene</h1>
+      <p>FindHjem gør boligjagten rolig og overskuelig med enkel vejledning, menneskelig varme og gennemsigtig data.</p>
+      <a class="cta" href="#start">Kom i gang</a>
+    </section>
 
+    <section class="section">
+      <div class="cards">
+        <article class="card">
+          <h3>Personlig rådgivning</h3>
+          <p class="small">En-til-en vejledning så du træffer trygge valg.</p>
+          <span class="badge">Populær</span>
+        </article>
 
-<!-- MACHINE-READABLE: Organization + WebSite + ContactPoint + HowTo + ItemList (Benefits) -->
-<script type="application/ld+json">
+        <article class="card">
+          <h3>Gennemsigtige data</h3>
+          <p class="small">Overskuelig information om kvarterer og priser.</p>
+        </article>
+
+        <article class="card">
+          <h3>Tryg proces</h3>
+          <p class="small">Vi hjælper dig hele vejen — uden stress.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Sådan virker det</h2>
+      <div class="howto">
+        <div class="step">
+          <h4>1. Fortæl os dine ønsker</h4>
+          <p class="small">Fortæl om budget, område og ønsker — så tilpasser vi data og råd.</p>
+        </div>
+        <div class="step">
+          <h4>2. Modtag skræddersyet overblik</h4>
+          <p class="small">Vi viser muligheder, risiko og praktiske next-steps.</p>
+        </div>
+        <div class="step">
+          <h4>3. Træf trygge valg</h4>
+          <p class="small">Gør et valg med ro i maven og støtte fra os.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="start" class="section">
+      <h2>Kom i gang</h2>
+      <form>
+        <label for="name">Navn</label>
+        <input id="name" name="name" placeholder="Dit navn" />
+
+        <label for="email">Email</label>
+        <input id="email" name="email" placeholder="din@email.dk" />
+
+        <label for="budget">Budget</label>
+        <select id="budget" name="budget">
+          <option value="low">Under 1.000.000</option>
+          <option value="mid">1.000.000–2.000.000</option>
+          <option value="high">Over 2.000.000</option>
+        </select>
+
+        <p class="hint">Vi kontakter dig for at starte processen — ingen spam.</p>
+
+        <div class="submit">
+          <button type="button" class="cta">Send forespørgsel</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p class="small">© FindHjem — ro i maven, klarhed i valgene</p>
+    </div>
+  </footer>
+</body>
 </html>
